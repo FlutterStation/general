@@ -17,10 +17,10 @@ class StandardMargin extends StatelessWidget {
 }
 
 class StandardPadding extends StatelessWidget {
-  const StandardPadding(this.child,
-      {Key? key, this.vertical = 8, this.horizontal = 15})
+  const StandardPadding(
+      {Key? key, this.child, this.vertical = 8, this.horizontal = 15})
       : super(key: key);
-  final Widget child;
+  final Widget? child;
   final double vertical;
   final double horizontal;
   @override
