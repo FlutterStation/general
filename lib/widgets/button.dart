@@ -178,7 +178,9 @@ class BtnBorder extends StatelessWidget {
             ? Row(
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
                 children: [
-                  icon!,
+                  IconTheme(
+                      data: Theme.of(context).iconTheme.copyWith(color: color),
+                      child: icon!),
                   const SizedBox(
                     width: 5,
                   ),
