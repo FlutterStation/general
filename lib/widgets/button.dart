@@ -185,11 +185,13 @@ class BtnBorder extends StatelessWidget {
                   CustomBtnText(
                     text!.toUpperCase(),
                     textAlign: TextAlign.center,
+                    color: color,
                   )
                 ],
               )
             : CustomBtnText(
                 text!.toUpperCase(),
+                color: color,
                 textAlign: TextAlign.center,
               ),
       ),
