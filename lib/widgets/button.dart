@@ -25,6 +25,7 @@ class BtnTextOnly extends StatelessWidget {
     this.color,
     this.height,
     this.isExpand = false,
+    this.isReverse = false,
   }) : super(key: key);
   final Widget? icon;
   final double? width;
@@ -34,6 +35,7 @@ class BtnTextOnly extends StatelessWidget {
   final String? text;
   final Color? color;
   final bool isExpand;
+  final bool isReverse;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -48,19 +50,31 @@ class BtnTextOnly extends StatelessWidget {
             ? Row(
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
                 children: [
-                  IconTheme(
-                      data: Theme.of(context).iconTheme.copyWith(
-                            color: color ?? Theme.of(context).primaryColor,
-                          ),
-                      child: icon!),
+                  isReverse
+                      ? CustomBtnText(
+                          text!.toUpperCase(),
+                          color: color ?? Theme.of(context).primaryColor,
+                          textAlign: TextAlign.center,
+                        )
+                      : IconTheme(
+                          data: Theme.of(context).iconTheme.copyWith(
+                                color: color ?? Theme.of(context).primaryColor,
+                              ),
+                          child: icon!),
                   const SizedBox(
                     width: 5,
                   ),
-                  CustomBtnText(
-                    text!.toUpperCase(),
-                    color: color ?? Theme.of(context).primaryColor,
-                    textAlign: TextAlign.center,
-                  ),
+                  isReverse
+                      ? IconTheme(
+                          data: Theme.of(context).iconTheme.copyWith(
+                                color: color ?? Theme.of(context).primaryColor,
+                              ),
+                          child: icon!)
+                      : CustomBtnText(
+                          text!.toUpperCase(),
+                          color: color ?? Theme.of(context).primaryColor,
+                          textAlign: TextAlign.center,
+                        ),
                 ],
               )
             : CustomBtnText(
@@ -85,6 +99,7 @@ class BtnFilled extends StatelessWidget {
     this.text_color,
     this.height,
     this.isExpand = false,
+    this.isReverse = false,
   }) : super(key: key);
   final Widget? icon;
   final double? width;
@@ -95,6 +110,7 @@ class BtnFilled extends StatelessWidget {
   final Color? color;
   final Color? text_color;
   final bool isExpand;
+  final bool isReverse;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -114,19 +130,31 @@ class BtnFilled extends StatelessWidget {
             ? Row(
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
                 children: [
-                  IconTheme(
-                      data: Theme.of(context)
-                          .iconTheme
-                          .copyWith(color: Colors.white),
-                      child: icon!),
+                  isReverse
+                      ? CustomBtnText(
+                          text!.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          color: text_color ?? Colors.white,
+                        )
+                      : IconTheme(
+                          data: Theme.of(context)
+                              .iconTheme
+                              .copyWith(color: Colors.white),
+                          child: icon!),
                   const SizedBox(
                     width: 5,
                   ),
-                  CustomBtnText(
-                    text!.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    color: text_color ?? Colors.white,
-                  ),
+                  isReverse
+                      ? IconTheme(
+                          data: Theme.of(context)
+                              .iconTheme
+                              .copyWith(color: Colors.white),
+                          child: icon!)
+                      : CustomBtnText(
+                          text!.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          color: text_color ?? Colors.white,
+                        ),
                 ],
               )
             : CustomBtnText(
@@ -150,6 +178,7 @@ class BtnBorder extends StatelessWidget {
     this.color,
     this.height,
     this.isExpand = false,
+    this.isReverse = false,
   }) : super(key: key);
   final Widget? icon;
   final double? width;
@@ -159,6 +188,7 @@ class BtnBorder extends StatelessWidget {
   final String? text;
   final Color? color;
   final bool isExpand;
+  final bool isReverse;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -178,17 +208,31 @@ class BtnBorder extends StatelessWidget {
             ? Row(
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
                 children: [
-                  IconTheme(
-                      data: Theme.of(context).iconTheme.copyWith(color: color),
-                      child: icon!),
+                  isReverse
+                      ? CustomBtnText(
+                          text!.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          color: color,
+                        )
+                      : IconTheme(
+                          data: Theme.of(context)
+                              .iconTheme
+                              .copyWith(color: color),
+                          child: icon!),
                   const SizedBox(
                     width: 5,
                   ),
-                  CustomBtnText(
-                    text!.toUpperCase(),
-                    textAlign: TextAlign.center,
-                    color: color,
-                  )
+                  isReverse
+                      ? IconTheme(
+                          data: Theme.of(context)
+                              .iconTheme
+                              .copyWith(color: color),
+                          child: icon!)
+                      : CustomBtnText(
+                          text!.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          color: color,
+                        )
                 ],
               )
             : CustomBtnText(
