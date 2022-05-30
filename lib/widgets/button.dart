@@ -26,12 +26,16 @@ class BtnTextOnly extends StatelessWidget {
     this.height,
     this.isExpand = false,
     this.isReverse = false,
+    this.vertical,
+    this.horizontal,
   }) : super(key: key);
   final Widget? icon;
   final double? width;
   final Function onTap;
   final double? radius;
   final double? height;
+  final double? vertical;
+  final double? horizontal;
   final String? text;
   final Color? color;
   final bool isExpand;
@@ -45,7 +49,8 @@ class BtnTextOnly extends StatelessWidget {
       },
       child: Container(
         height: height,
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 14),
+        padding: EdgeInsets.symmetric(
+            horizontal: horizontal ?? 25, vertical: vertical ?? 14),
         child: icon != null
             ? Row(
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
@@ -100,12 +105,16 @@ class BtnFilled extends StatelessWidget {
     this.height,
     this.isExpand = false,
     this.isReverse = false,
+    this.horizontal,
+    this.vertical,
   }) : super(key: key);
   final Widget? icon;
   final double? width;
   final Function onTap;
   final double? radius;
   final double? height;
+  final double? horizontal;
+  final double? vertical;
   final String? text;
   final Color? color;
   final Color? text_color;
@@ -121,7 +130,8 @@ class BtnFilled extends StatelessWidget {
       },
       child: Container(
         height: height,
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 14),
+        padding: EdgeInsets.symmetric(
+            horizontal: horizontal ?? 25, vertical: vertical ?? 14),
         decoration: BoxDecoration(
           color: color ?? Theme.of(context).primaryColor,
           borderRadius: BorderRadius.circular(radius ?? 0),
@@ -179,11 +189,15 @@ class BtnBorder extends StatelessWidget {
     this.height,
     this.isExpand = false,
     this.isReverse = false,
+    this.horizontal,
+    this.vertical,
   }) : super(key: key);
   final Widget? icon;
   final double? width;
   final Function onTap;
   final double? radius;
+  final double? horizontal;
+  final double? vertical;
   final double? height;
   final String? text;
   final Color? color;
@@ -198,7 +212,8 @@ class BtnBorder extends StatelessWidget {
       },
       child: Container(
         height: height,
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 14),
+        padding: EdgeInsets.symmetric(
+            horizontal: horizontal ?? 25, vertical: vertical ?? 14),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(radius ?? 0),
             border: Border.all(
