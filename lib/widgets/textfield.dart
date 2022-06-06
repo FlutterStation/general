@@ -28,7 +28,7 @@ class CustomTextField extends StatelessWidget {
   final String text;
   final double? height;
   final String? Function(String?)? validator;
-  final Future<void> Function(String)? onChanged;
+  final Function(String)? onChanged;
   final TextEditingController? controller;
   final TextInputType? keyboard;
   final bool lastTextField;
