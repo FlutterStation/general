@@ -1,46 +1,43 @@
-// import 'dart:convert';
-// import 'dart:io';
+import 'dart:convert';
+import 'dart:io';
 
-// import 'package:csv/csv.dart';
-// import 'package:file_picker/file_picker.dart';
+import 'package:csv/csv.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/services.dart';
 
-// class Csv {
-//   static Future<List> openFile(filepath) async {
-//     List<PlatformFile>? _paths;
-//     String? _extension = "csv";
-//     FileType _pickingType = FileType.custom;
-//     File f = new File(filepath);
-//     print("CSV to List");
-//     final input = f.openRead();
-//     final fields = await input
-//         .transform(utf8.decoder)
-//         .transform(new CsvToListConverter())
-//         .toList();
-//     print(fields);
-//     return fields;
-//   }
+class CsvImport {
+  static Future<List<List<dynamic>>> _getFile(filepath) async {
+    File f = File(filepath);
+    print("CSV to List");
+    final input = f.openRead();
+    final fields = await input
+        .transform(utf8.decoder)
+        .transform(const CsvToListConverter())
+        .toList();
+    print(fields);
 
-//   void _openFileExplorer() async {
-//     try {
-//       _paths = (await FilePicker.platform.pickFiles(
-//         type: _pickingType,
-//         allowMultiple: false,
-//         allowedExtensions: (_extension?.isNotEmpty ?? false)
-//             ? _extension?.replaceAll(' ', '').split(',')
-//             : null,
-//       ))
-//           ?.files;
-//     } on PlatformException catch (e) {
-//       print("Unsupported operation" + e.toString());
-//     } catch (ex) {
-//       print(ex);
-//     }
-//     if (!mounted) return;
-//     setState(() {
-//       openFile(_paths![0].path);
-//       print(_paths);
-//       print("File path ${_paths![0]}");
-//       print(_paths!.first.extension);
-//     });
-//   }
-// }
+    return fields;
+  }
+
+  static Future<List<List<dynamic>>> openFileExplorer(bool mounted) async {
+    List<PlatformFile>? _paths;
+    final String? _extension = "csv";
+    final FileType _pickingType = FileType.custom;
+    try {
+      _paths = (await FilePicker.platform.pickFiles(
+        type: _pickingType,
+        allowMultiple: false,
+        allowedExtensions: (_extension?.isNotEmpty ?? false)
+            ? _extension?.replaceAll(' ', '').split(',')
+            : null,
+      ))
+          ?.files;
+    } on PlatformException catch (e) {
+      print("Unsupported operation" + e.toString());
+    } catch (ex) {
+      print(ex);
+    }
+    var file = await _getFile(_paths![0].path);
+    return file;
+  }
+}

@@ -93,7 +93,10 @@ class CustomTextField extends StatelessWidget {
               borderSide: const BorderSide(color: Colors.grey),
             ),
             hintText: defaultData ?? text,
-            hintStyle: Theme.of(context).textTheme.subtitle2),
+            hintStyle: Theme.of(context)
+                .textTheme
+                .subtitle2!
+                .copyWith(color: Colors.grey)),
       ),
     );
   }
