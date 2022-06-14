@@ -47,18 +47,20 @@ class CustomText extends StatelessWidget {
       maxLines: maxLines,
       textAlign: textAlign,
       softWrap: softWrap ?? true,
-      style: textStyle?.copyWith(
-              letterSpacing: letterSpacing ?? 0,
-              fontSize: size,
-              fontWeight: weight,
-              wordSpacing: spacing,
-              color: color) ??
-          categoryScale(context, type).copyWith(
-              letterSpacing: letterSpacing ?? 0,
-              fontSize: size,
-              fontWeight: weight,
-              wordSpacing: spacing,
-              color: color),
+      style: categoryScale(context, type)?.copyWith(
+            letterSpacing: letterSpacing ?? 0,
+            fontSize: size,
+            fontWeight: weight,
+            wordSpacing: spacing,
+            color: color,
+          ) ??
+          TextStyle(
+            letterSpacing: letterSpacing ?? 0,
+            fontSize: size,
+            fontWeight: weight,
+            wordSpacing: spacing,
+            color: color,
+          ),
     );
   }
 }
@@ -112,7 +114,7 @@ class CustomCodeText extends StatelessWidget {
                 color: Theme.of(context).brightness == Brightness.dark
                     ? Colors.white
                     : Colors.black) ??
-            categoryScale(context, type ?? Type.subtitle2).copyWith(
+            categoryScale(context, type ?? Type.subtitle2)?.copyWith(
                 letterSpacing: letterSpacing ?? 0,
                 fontSize: size,
                 fontWeight: weight,
@@ -186,7 +188,8 @@ enum Type {
   caption // For Caption minitext
 }
 
-TextStyle categoryScale(context, Type? type) {
+TextStyle? categoryScale(context, Type? type) {
+  print(type);
   switch (type) {
     case Type.headline2:
       return Theme.of(context).textTheme.headline2!;
@@ -207,6 +210,7 @@ TextStyle categoryScale(context, Type? type) {
     case Type.subtitle2:
       return Theme.of(context).textTheme.subtitle2!;
     default:
-      return Theme.of(context).textTheme.subtitle1!;
+      return null;
   }
+  return null;
 }

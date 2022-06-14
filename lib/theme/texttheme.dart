@@ -10,7 +10,6 @@ import 'package:google_fonts/google_fonts.dart';
 /// 3. Montserrat
 /// 4. Lato
 /// 5. Inter
-
 var robotoTextTheme = TextTheme(
   headline1: GoogleFonts.roboto(
       fontSize: 96, fontWeight: FontWeight.w300, letterSpacing: -1.5),
@@ -38,6 +37,14 @@ var robotoTextTheme = TextTheme(
       fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
 );
 
+/// Top 5 [ TextTheme ]
+/// @author [ Mikagura12 ]
+/// --------------------------
+/// 1. Roboto
+/// 2. Poppins
+/// 3. Montserrat
+/// 4. Lato
+/// 5. Inter
 var poppinsTextTheme = TextTheme(
   headline1: GoogleFonts.poppins(
       fontSize: 93, fontWeight: FontWeight.w300, letterSpacing: -1.5),
@@ -65,6 +72,14 @@ var poppinsTextTheme = TextTheme(
       fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
 );
 
+/// Top 5 [ TextTheme ]
+/// @author [ Mikagura12 ]
+/// --------------------------
+/// 1. Roboto
+/// 2. Poppins
+/// 3. Montserrat
+/// 4. Lato
+/// 5. Inter
 var montserratTextTheme = TextTheme(
   headline1: GoogleFonts.montserrat(
       fontSize: 97, fontWeight: FontWeight.w300, letterSpacing: -1.5),
@@ -92,6 +107,14 @@ var montserratTextTheme = TextTheme(
       fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
 );
 
+/// Top 5 [ TextTheme ]
+/// @author [ Mikagura12 ]
+/// --------------------------
+/// 1. Roboto
+/// 2. Poppins
+/// 3. Montserrat
+/// 4. Lato
+/// 5. Inter
 var latoTextTheme = TextTheme(
   headline1: GoogleFonts.lato(
       fontSize: 101, fontWeight: FontWeight.w300, letterSpacing: -1.5),
@@ -119,6 +142,14 @@ var latoTextTheme = TextTheme(
       fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
 );
 
+/// Top 5 [ TextTheme ]
+/// @author [ Mikagura12 ]
+/// --------------------------
+/// 1. Roboto
+/// 2. Poppins
+/// 3. Montserrat
+/// 4. Lato
+/// 5. Inter
 var interTextTheme = TextTheme(
   headline1: GoogleFonts.inter(
       fontSize: 93, fontWeight: FontWeight.w300, letterSpacing: -1.5),
@@ -146,7 +177,16 @@ var interTextTheme = TextTheme(
       fontSize: 10, fontWeight: FontWeight.w400, letterSpacing: 1.5),
 );
 
-var qsandTextTheme = TextTheme(
+/// Top 5 [ TextTheme ]
+/// @author [ Mikagura12 ]
+/// --------------------------
+/// 1. Roboto
+/// 2. Poppins
+/// 3. Montserrat
+/// 4. Lato
+/// 5. Inter
+/// 6. Anton
+var antonTextTheme = TextTheme(
   headline1: GoogleFonts.anton(
       fontSize: 99, fontWeight: FontWeight.w300, letterSpacing: -1.5),
   headline2: GoogleFonts.anton(
