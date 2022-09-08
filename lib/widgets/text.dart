@@ -48,12 +48,19 @@ class CustomText extends StatelessWidget {
       textAlign: textAlign,
       softWrap: softWrap ?? true,
       style: textStyle?.copyWith(
-        letterSpacing: letterSpacing ?? 0,
-        fontSize: size,
-        fontWeight: weight,
-        wordSpacing: spacing,
-        color: color,
-      ),
+            letterSpacing: letterSpacing ?? 0,
+            fontSize: size,
+            fontWeight: weight,
+            wordSpacing: spacing,
+            color: color,
+          ) ??
+          TextStyle(
+            letterSpacing: letterSpacing ?? 0,
+            fontSize: size,
+            fontWeight: weight,
+            wordSpacing: spacing,
+            color: color,
+          ),
     );
   }
 }
