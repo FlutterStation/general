@@ -47,7 +47,7 @@ class CustomText extends StatelessWidget {
       maxLines: maxLines,
       textAlign: textAlign,
       softWrap: softWrap ?? true,
-      style: TextStyle(
+      style: textStyle?.copyWith(
         letterSpacing: letterSpacing ?? 0,
         fontSize: size,
         fontWeight: weight,
