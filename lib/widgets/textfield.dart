@@ -14,19 +14,26 @@ class CustomTextField extends StatelessWidget {
     this.formKey,
     this.maxLines,
     this.height,
+    this.width,
+    this.contentPadding,
     this.suffix,
     this.color = Colors.black,
     this.onChanged,
     this.obscureText = false,
     this.radius,
+    this.bgColor,
+    this.hintTextColor,
   });
   final double? radius;
   final Widget? suffix;
   final Widget? prefix;
   final int? maxLines;
   final Color color;
+  final Color? bgColor;
+  final Color? hintTextColor;
   final String text;
   final double? height;
+  final double? width;
   final String? Function(String?)? validator;
   final Function(String)? onChanged;
   final TextEditingController? controller;
@@ -36,67 +43,71 @@ class CustomTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final Key? formKey;
   final bool obscureText;
+  final EdgeInsetsGeometry? contentPadding;
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
     return Form(
       key: formKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      child: TextFormField(
-        onChanged: onChanged,
-        textCapitalization: TextCapitalization.words,
-        controller: controller,
-        inputFormatters: inputFormatters,
-        onEditingComplete: () {
-          if (lastTextField) {
-            node.unfocus();
-          }
-          {
-            node.nextFocus();
-          }
-        },
-        validator: validator,
-        obscureText: obscureText,
-        style: Theme.of(context).textTheme.subtitle2,
-        maxLines: obscureText ? 1 : maxLines,
-        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-        keyboardType: keyboard ?? TextInputType.text,
-        enabled: defaultData == null,
-        decoration: InputDecoration(
-            suffixIcon: suffix,
-            prefixIcon: prefix,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-            filled: true,
-            fillColor: color.withOpacity(0.2),
-            focusColor: color,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(radius ?? 8),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(radius ?? 8),
-              borderSide: const BorderSide(
-                color: Colors.red,
+      child: SizedBox(
+        child: TextFormField(
+          onChanged: onChanged,
+          textCapitalization: TextCapitalization.words,
+          controller: controller,
+          inputFormatters: inputFormatters,
+          onEditingComplete: () {
+            if (lastTextField) {
+              node.unfocus();
+            }
+            {
+              node.nextFocus();
+            }
+          },
+          validator: validator,
+          obscureText: obscureText,
+          style: Theme.of(context).textTheme.subtitle2,
+          maxLines: obscureText ? 1 : maxLines,
+          maxLengthEnforcement: MaxLengthEnforcement.enforced,
+          keyboardType: keyboard ?? TextInputType.text,
+          enabled: defaultData == null,
+          decoration: InputDecoration(
+              suffixIcon: suffix,
+              prefixIcon: prefix,
+              contentPadding:
+                  contentPadding ?? const EdgeInsets.symmetric(horizontal: 8),
+              filled: true,
+              fillColor: bgColor ?? Theme.of(context).scaffoldBackgroundColor,
+              focusColor: color,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? 8),
               ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(radius ?? 8),
-              borderSide: BorderSide(
-                color: color,
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? 8),
+                borderSide: BorderSide(
+                  color: Theme.of(context).errorColor,
+                ),
               ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(radius ?? 8),
-              borderSide: const BorderSide(style: BorderStyle.none),
-            ),
-            disabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(radius ?? 8),
-              borderSide: const BorderSide(color: Colors.grey),
-            ),
-            hintText: defaultData ?? text,
-            hintStyle: Theme.of(context)
-                .textTheme
-                .subtitle2!
-                .copyWith(color: Colors.grey)),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? 8),
+                borderSide: BorderSide(
+                  color: color,
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? 8),
+                borderSide: const BorderSide(style: BorderStyle.none),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(radius ?? 8),
+                borderSide: const BorderSide(color: Colors.grey),
+              ),
+              hintText: defaultData ?? text,
+              hintStyle: Theme.of(context)
+                  .textTheme
+                  .subtitle2!
+                  .copyWith(color: hintTextColor ?? Colors.grey)),
+        ),
       ),
     );
   }
