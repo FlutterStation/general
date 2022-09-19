@@ -155,7 +155,7 @@ class CustomBtnText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      text!.toUpperCase(),
+      text ?? '',
       overflow: overflow,
       maxLines: maxLines,
       textAlign: textAlign,
