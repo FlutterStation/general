@@ -88,7 +88,7 @@ class BtnTextOnly extends StatelessWidget {
                               child: icon!),
                         )
                       : CustomBtnText(
-                          text!.toUpperCase(),
+                          text ?? '',
                           color: color ?? Theme.of(context).primaryColor,
                           textAlign: TextAlign.center,
                         ),
