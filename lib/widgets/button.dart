@@ -50,6 +50,7 @@ class BtnTextOnly extends StatelessWidget {
       child: Container(
         height: height,
         width: width,
+        alignment: Alignment.center,
         padding: EdgeInsets.symmetric(
             horizontal: horizontal ?? 25, vertical: vertical ?? 14),
         child: icon != null
@@ -143,6 +144,7 @@ class BtnFilled extends StatelessWidget {
       child: Container(
         height: height,
         width: width,
+        alignment: Alignment.center,
         padding: EdgeInsets.symmetric(
             horizontal: horizontal ?? 25, vertical: vertical ?? 14),
         decoration: BoxDecoration(
@@ -235,6 +237,7 @@ class BtnBorder extends StatelessWidget {
       child: Container(
         height: height,
         width: width,
+        alignment: Alignment.center,
         padding: EdgeInsets.symmetric(
             horizontal: horizontal ?? 25, vertical: vertical ?? 14),
         decoration: BoxDecoration(
