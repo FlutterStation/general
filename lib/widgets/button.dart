@@ -59,7 +59,7 @@ class BtnTextOnly extends StatelessWidget {
                 children: [
                   isReverse
                       ? CustomBtnText(
-                          text!.toUpperCase(),
+                          text ?? '',
                           color: color ?? Theme.of(context).primaryColor,
                           textAlign: TextAlign.center,
                         )
@@ -95,7 +95,7 @@ class BtnTextOnly extends StatelessWidget {
                 ],
               )
             : CustomBtnText(
-                text!.toUpperCase(),
+                text ?? '',
                 color: color ?? Theme.of(context).primaryColor,
                 textAlign: TextAlign.center,
               ),
@@ -156,7 +156,7 @@ class BtnFilled extends StatelessWidget {
                 children: [
                   isReverse
                       ? CustomBtnText(
-                          text!.toUpperCase(),
+                          text ?? '',
                           textAlign: TextAlign.center,
                           color: text_color ?? Colors.white,
                         )
@@ -183,14 +183,14 @@ class BtnFilled extends StatelessWidget {
                               child: icon!),
                         )
                       : CustomBtnText(
-                          text!.toUpperCase(),
+                          text ?? '',
                           textAlign: TextAlign.center,
                           color: text_color ?? Colors.white,
                         ),
                 ],
               )
             : CustomBtnText(
-                text!.toUpperCase(),
+                text ?? '',
                 textAlign: TextAlign.center,
                 color: text_color ?? Colors.white,
               ),
@@ -249,7 +249,7 @@ class BtnBorder extends StatelessWidget {
                 children: [
                   isReverse
                       ? CustomBtnText(
-                          text!.toUpperCase(),
+                          text ?? '',
                           textAlign: TextAlign.center,
                           color: color,
                         )
@@ -276,14 +276,14 @@ class BtnBorder extends StatelessWidget {
                               child: icon!),
                         )
                       : CustomBtnText(
-                          text!.toUpperCase(),
+                          text ?? '',
                           textAlign: TextAlign.center,
                           color: color,
                         )
                 ],
               )
             : CustomBtnText(
-                text!.toUpperCase(),
+                text ?? '',
                 color: color,
                 textAlign: TextAlign.center,
               ),
