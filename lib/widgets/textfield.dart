@@ -100,7 +100,7 @@ class CustomTextField extends StatelessWidget {
               ),
               disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(radius ?? 8),
-                borderSide: const BorderSide(color: Colors.grey),
+                borderSide: const BorderSide(style: BorderStyle.none),
               ),
               hintText: defaultData ?? text,
               hintStyle: Theme.of(context)
