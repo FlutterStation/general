@@ -59,7 +59,7 @@ class BtnTextOnly extends StatelessWidget {
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
                 children: [
                   isReverse
-                      ? CustomBtnText(
+                      ? CustomText(
                           text ?? '',
                           color: color ?? Theme.of(context).primaryColor,
                           textAlign: TextAlign.center,
@@ -88,14 +88,14 @@ class BtnTextOnly extends StatelessWidget {
                                   ),
                               child: icon!),
                         )
-                      : CustomBtnText(
+                      : CustomText(
                           text ?? '',
                           color: color ?? Theme.of(context).primaryColor,
                           textAlign: TextAlign.center,
                         ),
                 ],
               )
-            : CustomBtnText(
+            : CustomText(
                 text ?? '',
                 color: color ?? Theme.of(context).primaryColor,
                 textAlign: TextAlign.center,
@@ -157,7 +157,7 @@ class BtnFilled extends StatelessWidget {
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
                 children: [
                   isReverse
-                      ? CustomBtnText(
+                      ? CustomText(
                           text ?? '',
                           textAlign: TextAlign.center,
                           color: text_color ?? Colors.white,
@@ -184,14 +184,14 @@ class BtnFilled extends StatelessWidget {
                                   .copyWith(color: Colors.white),
                               child: icon!),
                         )
-                      : CustomBtnText(
+                      : CustomText(
                           text ?? '',
                           textAlign: TextAlign.center,
                           color: text_color ?? Colors.white,
                         ),
                 ],
               )
-            : CustomBtnText(
+            : CustomText(
                 text ?? '',
                 textAlign: TextAlign.center,
                 color: text_color ?? Colors.white,
@@ -251,7 +251,7 @@ class BtnBorder extends StatelessWidget {
                 mainAxisSize: isExpand ? MainAxisSize.max : MainAxisSize.min,
                 children: [
                   isReverse
-                      ? CustomBtnText(
+                      ? CustomText(
                           text ?? '',
                           textAlign: TextAlign.center,
                           color: color,
@@ -278,14 +278,14 @@ class BtnBorder extends StatelessWidget {
                                   .copyWith(color: color),
                               child: icon!),
                         )
-                      : CustomBtnText(
+                      : CustomText(
                           text ?? '',
                           textAlign: TextAlign.center,
                           color: color,
                         )
                 ],
               )
-            : CustomBtnText(
+            : CustomText(
                 text ?? '',
                 color: color,
                 textAlign: TextAlign.center,
