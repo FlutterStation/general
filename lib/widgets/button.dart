@@ -215,6 +215,7 @@ class BtnBorder extends StatelessWidget {
     this.isReverse = false,
     this.horizontal,
     this.vertical,
+    this.style,
   }) : super(key: key);
   final Widget? icon;
   final double? width;
@@ -227,6 +228,7 @@ class BtnBorder extends StatelessWidget {
   final Color? color;
   final bool isExpand;
   final bool isReverse;
+  final TextStyle? style;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -241,10 +243,11 @@ class BtnBorder extends StatelessWidget {
         padding: EdgeInsets.symmetric(
             horizontal: horizontal ?? 25, vertical: vertical ?? 14),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(radius ?? 0),
-            border: Border.all(
-              color: color ?? Theme.of(context).primaryColor,
-            )),
+          borderRadius: BorderRadius.circular(radius ?? 0),
+          border: Border.all(
+            color: color ?? Theme.of(context).primaryColor,
+          ),
+        ),
         child: icon != null
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -255,6 +258,7 @@ class BtnBorder extends StatelessWidget {
                           text ?? '',
                           textAlign: TextAlign.center,
                           color: color,
+                          textStyle: style,
                         )
                       : SizedBox(
                           height: 25,
