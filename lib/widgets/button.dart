@@ -286,6 +286,7 @@ class BtnBorder extends StatelessWidget {
                           text ?? '',
                           textAlign: TextAlign.center,
                           color: color,
+                          textStyle: style,
                         )
                 ],
               )
