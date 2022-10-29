@@ -53,6 +53,7 @@ class CustomTextField extends StatelessWidget {
       key: formKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: SizedBox(
+        height: height,
         child: TextFormField(
           onFieldSubmitted: onSubmit,
           onChanged: onChanged,
