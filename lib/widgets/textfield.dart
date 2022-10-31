@@ -24,6 +24,7 @@ class CustomTextField extends StatelessWidget {
     this.bgColor,
     this.hintTextColor,
     this.onSubmit,
+    this.errorColor,
   });
   final double? radius;
   final Widget? suffix;
@@ -46,6 +47,7 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final EdgeInsetsGeometry? contentPadding;
   final Function(String)? onSubmit;
+  final Color? errorColor;
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
@@ -76,41 +78,42 @@ class CustomTextField extends StatelessWidget {
           keyboardType: keyboard ?? TextInputType.text,
           enabled: defaultData == null,
           decoration: InputDecoration(
-              suffixIcon: suffix,
-              prefixIcon: prefix,
-              contentPadding:
-                  contentPadding ?? const EdgeInsets.symmetric(horizontal: 8),
-              filled: true,
-              fillColor: bgColor ?? Theme.of(context).scaffoldBackgroundColor,
-              focusColor: color,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius ?? 8),
+            suffixIcon: suffix,
+            prefixIcon: prefix,
+            contentPadding:
+                contentPadding ?? const EdgeInsets.symmetric(horizontal: 8),
+            filled: true,
+            fillColor: bgColor ?? Theme.of(context).scaffoldBackgroundColor,
+            focusColor: color,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius ?? 8),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius ?? 8),
+              borderSide: BorderSide(
+                color: errorColor ?? Theme.of(context).errorColor,
               ),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius ?? 8),
-                borderSide: BorderSide(
-                  color: Theme.of(context).errorColor,
-                ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius ?? 8),
+              borderSide: BorderSide(
+                color: color,
               ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius ?? 8),
-                borderSide: BorderSide(
-                  color: color,
-                ),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius ?? 8),
-                borderSide: const BorderSide(style: BorderStyle.none),
-              ),
-              disabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(radius ?? 8),
-                borderSide: const BorderSide(style: BorderStyle.none),
-              ),
-              hintText: defaultData ?? text,
-              hintStyle: Theme.of(context)
-                  .textTheme
-                  .subtitle2!
-                  .copyWith(color: hintTextColor ?? Colors.grey)),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius ?? 8),
+              borderSide: const BorderSide(style: BorderStyle.none),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(radius ?? 8),
+              borderSide: const BorderSide(style: BorderStyle.none),
+            ),
+            hintText: defaultData ?? text,
+            hintStyle: Theme.of(context)
+                .textTheme
+                .subtitle2!
+                .copyWith(color: hintTextColor ?? Colors.grey),
+          ),
         ),
       ),
     );
