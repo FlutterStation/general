@@ -25,6 +25,7 @@ class CustomTextField extends StatelessWidget {
     this.hintTextColor,
     this.onSubmit,
     this.errorColor,
+    this.textAlign,
   });
   final double? radius;
   final Widget? suffix;
@@ -48,6 +49,7 @@ class CustomTextField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final Function(String)? onSubmit;
   final Color? errorColor;
+  final TextAlign? textAlign;
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
@@ -57,6 +59,7 @@ class CustomTextField extends StatelessWidget {
       child: SizedBox(
         height: height,
         child: TextFormField(
+          textAlign: textAlign ?? TextAlign.start,
           onFieldSubmitted: onSubmit,
           onChanged: onChanged,
           textCapitalization: TextCapitalization.words,
