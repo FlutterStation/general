@@ -51,8 +51,7 @@ class CsvExport {
       // final directory = (await getExternalStorageDirectories(
       //         type: StorageDirectory.downloads))!
       //     .first;
-      String dir =
-          "/storage/emulated/0/Download/$fileName${DateTime.now()}.csv";
+      String dir = "/storage/emulated/0/Download/$fileName.csv";
       String file = dir;
 
       File f = File(file);
