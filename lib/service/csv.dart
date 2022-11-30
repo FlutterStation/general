@@ -44,14 +44,14 @@ class CsvImport {
 }
 
 class CsvExport {
-  static Future<bool> getCsv(List<List<dynamic>> data) async {
+  static Future<bool> getCsv(List<List<dynamic>> data,
+      {required String fileName}) async {
     if (await Permission.storage.request().isGranted) {
 //store file in documents folder
       // final directory = (await getExternalStorageDirectories(
       //         type: StorageDirectory.downloads))!
       //     .first;
-      String dir =
-          "/storage/emulated/0/Download/a_plus_${DateTime.now().microsecondsSinceEpoch}.csv";
+      String dir = "/storage/emulated/0/Download/$fileName.csv";
       String file = dir;
 
       File f = File(file);
