@@ -26,6 +26,7 @@ class CustomTextField extends StatelessWidget {
     this.onSubmit,
     this.errorColor,
     this.textAlign,
+    this.maxLength,
   });
   final double? radius;
   final Widget? suffix;
@@ -50,6 +51,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onSubmit;
   final Color? errorColor;
   final TextAlign? textAlign;
+  final int? maxLength;
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
@@ -65,6 +67,7 @@ class CustomTextField extends StatelessWidget {
           textCapitalization: TextCapitalization.words,
           controller: controller,
           inputFormatters: inputFormatters,
+          maxLength: maxLength,
           onEditingComplete: () {
             if (lastTextField) {
               node.unfocus();
